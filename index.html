@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratory Booking Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+
+    <header>
+
+        <h1>Laboratory Booking Portal</h1>
+
+        <nav>
+
+            <a href="#">Home</a>
+            <a href="#">Laboratories</a>
+            <a href="#">Booking</a>
+            <a href="#">Contact</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <h2>Book Your Laboratory Easily</h2>
+
+        <p>Choose your preferred laboratory, date and time.</p>
+
+    </section>
+
+
+    <!-- Booking Form -->
+
+    <section class="booking">
+
+        <h2>Laboratory Booking Form</h2>
+
+        <form id="bookingForm">
+
+            <label>Student Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label>Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label>Select Laboratory</label>
+
+            <select id="lab">
+
+                <option>Computer Lab</option>
+                <option>AI & ML Lab</option>
+                <option>Networking Lab</option>
+                <option>Electronics Lab</option>
+
+            </select>
+
+            <label>Select Date</label>
+            <input type="date" id="date" required>
+
+            <label>Select Time</label>
+
+            <select id="time">
+
+                <option>09:00 AM</option>
+                <option>11:00 AM</option>
+                <option>01:00 PM</option>
+                <option>03:00 PM</option>
+
+            </select>
+
+            <button type="submit">Book Now</button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Available Labs -->
+
+    <section class="labs">
+
+        <h2>Available Laboratories</h2>
+
+        <div class="grid-container">
+
+            <div class="card">
+
+                <h3>Computer Lab</h3>
+
+                <p>Capacity : 40 Students</p>
+
+                <button>Available</button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>AI & ML Lab</h3>
+
+                <p>Capacity : 35 Students</p>
+
+                <button>Available</button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Networking Lab</h3>
+
+                <p>Capacity : 30 Students</p>
+
+                <button>Available</button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Electronics Lab</h3>
+
+                <p>Capacity : 25 Students</p>
+
+                <button>Available</button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Cloud Computing Lab</h3>
+
+                <p>Capacity : 32 Students</p>
+
+                <button>Available</button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>IoT Lab</h3>
+
+                <p>Capacity : 28 Students</p>
+
+                <button>Available</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>© 2026 Laboratory Booking Portal | All Rights Reserved</p>
+
+    </footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

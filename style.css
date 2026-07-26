@@ -1,0 +1,286 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:white;
+    color:#333;
+}
+
+/* Header */
+
+header{
+
+    background:#1f3c88;
+    color:white;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 40px;
+
+}
+
+nav{
+
+    display:flex;
+    gap:20px;
+
+}
+
+nav a{
+
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+
+}
+
+nav a:hover{
+
+    color:#ffd54f;
+
+}
+
+/* Hero */
+
+.hero{
+
+    text-align:center;
+    padding:60px 20px;
+
+    animation:fadeIn 1s;
+
+}
+
+.hero h2{
+
+    margin-bottom:15px;
+    color:#1f3c88;
+
+}
+
+.hero p{
+
+    color:#666;
+
+}
+
+/* Booking Form */
+
+.booking{
+
+    width:90%;
+    max-width:600px;
+
+    margin:30px auto;
+
+    background:#f7f7f7;
+
+    padding:30px;
+
+    border-radius:10px;
+
+}
+
+.booking h2{
+
+    text-align:center;
+    margin-bottom:20px;
+
+}
+
+form{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+label{
+
+    margin-top:10px;
+
+}
+
+input,
+select{
+
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+
+}
+
+button{
+
+    margin-top:20px;
+
+    padding:12px;
+
+    background:#1f3c88;
+
+    color:white;
+
+    border:none;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+button:hover{
+
+    background:#4a90e2;
+
+    transform:scale(1.05);
+
+}
+
+/* Grid Layout */
+
+.labs{
+
+    width:90%;
+    margin:50px auto;
+
+}
+
+.labs h2{
+
+    text-align:center;
+    margin-bottom:25px;
+
+}
+
+.grid-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+.card{
+
+    background:#f4f4f4;
+
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:10px;
+
+    transition:0.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 5px 12px rgba(0,0,0,0.2);
+
+}
+
+.card h3{
+
+    color:#1f3c88;
+    margin-bottom:10px;
+
+}
+
+.card p{
+
+    margin-bottom:15px;
+
+}
+
+/* Footer */
+
+footer{
+
+    margin-top:50px;
+
+    background:#1f3c88;
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+/* Animation */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(-20px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.grid-container{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+header{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.grid-container{
+
+grid-template-columns:1fr;
+
+}
+
+nav{
+
+flex-direction:column;
+align-items:center;
+
+}
+
+header{
+
+padding:20px;
+
+}
+
+}
