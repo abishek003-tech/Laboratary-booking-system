@@ -6,166 +6,194 @@
     <title>Laboratory Booking Portal</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
     <!-- Header -->
-
     <header>
-
-        <h1>Laboratory Booking Portal</h1>
+        <div class="logo">
+            <i class="fa-solid fa-flask"></i>
+            <h2>Lab Portal</h2>
+        </div>
 
         <nav>
-
-            <a href="#">Home</a>
-            <a href="#">Laboratories</a>
-            <a href="#">Booking</a>
-            <a href="#">Contact</a>
-
+            <a href="#home">Home</a>
+            <a href="#booking">Booking</a>
+            <a href="#labs">Laboratories</a>
+            <a href="#contact">Contact</a>
         </nav>
-
     </header>
 
-
     <!-- Hero Section -->
+    <section class="hero" id="home">
 
-    <section class="hero">
+        <div class="hero-text">
 
-        <h2>Book Your Laboratory Easily</h2>
+            <h1>Laboratory Booking Portal</h1>
 
-        <p>Choose your preferred laboratory, date and time.</p>
+            <p>
+                Book laboratories quickly and easily.
+                Select your preferred lab, date and time with just a few clicks.
+            </p>
+
+            <a href="#booking" class="hero-btn">Book Now</a>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=700" alt="Laboratory">
+
+        </div>
 
     </section>
 
-
     <!-- Booking Form -->
+    <section class="booking" id="booking">
 
-    <section class="booking">
-
-        <h2>Laboratory Booking Form</h2>
+        <h2>Book Your Laboratory</h2>
 
         <form id="bookingForm">
 
-            <label>Student Name</label>
-            <input type="text" id="name" placeholder="Enter your name" required>
+            <div class="input-box">
+                <label>Student Name</label>
+                <input type="text" id="name" required>
+            </div>
 
-            <label>Email</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
+            <div class="input-box">
+                <label>Email</label>
+                <input type="email" id="email" required>
+            </div>
 
-            <label>Select Laboratory</label>
+            <div class="input-box">
+                <label>Laboratory</label>
 
-            <select id="lab">
+                <select id="lab">
 
-                <option>Computer Lab</option>
-                <option>AI & ML Lab</option>
-                <option>Networking Lab</option>
-                <option>Electronics Lab</option>
+                    <option>Computer Lab</option>
+                    <option>AI & ML Lab</option>
+                    <option>Networking Lab</option>
+                    <option>Cloud Computing Lab</option>
 
-            </select>
+                </select>
 
-            <label>Select Date</label>
-            <input type="date" id="date" required>
+            </div>
 
-            <label>Select Time</label>
+            <div class="input-box">
+                <label>Date</label>
+                <input type="date" id="date" required>
+            </div>
 
-            <select id="time">
+            <div class="input-box">
+                <label>Time</label>
 
-                <option>09:00 AM</option>
-                <option>11:00 AM</option>
-                <option>01:00 PM</option>
-                <option>03:00 PM</option>
+                <select id="time">
 
-            </select>
+                    <option>09:00 AM</option>
+                    <option>11:00 AM</option>
+                    <option>01:00 PM</option>
+                    <option>03:00 PM</option>
 
-            <button type="submit">Book Now</button>
+                </select>
+
+            </div>
+
+            <button type="submit">Book Laboratory</button>
 
         </form>
 
     </section>
 
-
-    <!-- Available Labs -->
-
-    <section class="labs">
+    <!-- Lab Cards -->
+    <section class="labs" id="labs">
 
         <h2>Available Laboratories</h2>
 
-        <div class="grid-container">
+        <div class="lab-grid">
 
             <div class="card">
-
+                <i class="fa-solid fa-computer"></i>
                 <h3>Computer Lab</h3>
-
-                <p>Capacity : 40 Students</p>
-
+                <p>40 Systems</p>
                 <button>Available</button>
-
             </div>
 
             <div class="card">
-
+                <i class="fa-solid fa-robot"></i>
                 <h3>AI & ML Lab</h3>
-
-                <p>Capacity : 35 Students</p>
-
+                <p>35 Systems</p>
                 <button>Available</button>
-
             </div>
 
             <div class="card">
-
+                <i class="fa-solid fa-network-wired"></i>
                 <h3>Networking Lab</h3>
-
-                <p>Capacity : 30 Students</p>
-
+                <p>30 Systems</p>
                 <button>Available</button>
-
             </div>
 
             <div class="card">
-
-                <h3>Electronics Lab</h3>
-
-                <p>Capacity : 25 Students</p>
-
+                <i class="fa-solid fa-cloud"></i>
+                <h3>Cloud Lab</h3>
+                <p>32 Systems</p>
                 <button>Available</button>
-
-            </div>
-
-            <div class="card">
-
-                <h3>Cloud Computing Lab</h3>
-
-                <p>Capacity : 32 Students</p>
-
-                <button>Available</button>
-
-            </div>
-
-            <div class="card">
-
-                <h3>IoT Lab</h3>
-
-                <p>Capacity : 28 Students</p>
-
-                <button>Available</button>
-
             </div>
 
         </div>
 
     </section>
 
+    <!-- Statistics -->
+    <section class="stats">
+
+        <div class="stat-box">
+            <h2>6+</h2>
+            <p>Laboratories</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>250+</h2>
+            <p>Bookings</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>500+</h2>
+            <p>Students</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>100%</h2>
+            <p>Availability</p>
+        </div>
+
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>Email : laboratory@college.edu</p>
+
+        <p>Phone : +91 9876543210</p>
+
+        <p>Location : Coimbatore</p>
+
+    </section>
 
     <!-- Footer -->
-
     <footer>
 
-        <p>© 2026 Laboratory Booking Portal | All Rights Reserved</p>
+        <p>
+            © 2026 Laboratory Booking Portal | Designed using HTML, CSS3 & JavaScript
+        </p>
 
     </footer>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
