@@ -1,52 +1,89 @@
-// =============================
-// Booking Form
-// =============================
+// ===============================
+// Select Elements
+// ===============================
 
 const form = document.getElementById("bookingForm");
+const bookingSlip = document.getElementById("bookingSlip");
+const bookingTable = document.getElementById("bookingTable");
+
+// ===============================
+// Booking Form
+// ===============================
 
 form.addEventListener("submit", function (e) {
 
     e.preventDefault();
 
+    const bookingID = "LAB" + Math.floor(Math.random() * 9000 + 1000);
+
     const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
     const lab = document.getElementById("lab").value;
     const date = document.getElementById("date").value;
     const time = document.getElementById("time").value;
 
-    alert(
-`✅ Booking Successful!
+    // Booking Slip
 
-Student : ${name}
+    document.getElementById("bookingId").innerText = bookingID;
+    document.getElementById("studentName").innerText = name;
+    document.getElementById("studentEmail").innerText = email;
+    document.getElementById("studentLab").innerText = lab;
+    document.getElementById("studentDate").innerText = date;
+    document.getElementById("studentTime").innerText = time;
 
-Laboratory : ${lab}
+    bookingSlip.style.display = "block";
 
-Date : ${date}
+    bookingSlip.scrollIntoView({
 
-Time : ${time}
+        behavior: "smooth"
 
-Thank You!`
-    );
+    });
+
+    // Add Booking History
+
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td>${bookingID}</td>
+        <td>${name}</td>
+        <td>${lab}</td>
+        <td>${date}</td>
+        <td>${time}</td>
+    `;
+
+    bookingTable.appendChild(row);
+
+    alert("✅ Laboratory Booked Successfully!");
 
     form.reset();
 
 });
 
+// ===============================
+// Download Booking Slip
+// ===============================
 
-// =============================
-// Smooth Scrolling
-// =============================
+document.getElementById("downloadSlip").addEventListener("click", function () {
 
-document.querySelectorAll('nav a').forEach(anchor => {
+    window.print();
 
-    anchor.addEventListener('click', function(e){
+});
+
+// ===============================
+// Smooth Navigation
+// ===============================
+
+document.querySelectorAll("nav a").forEach(link => {
+
+    link.addEventListener("click", function (e) {
 
         e.preventDefault();
 
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(this.getAttribute("href"));
 
         target.scrollIntoView({
 
-            behavior:'smooth'
+            behavior: "smooth"
 
         });
 
@@ -54,13 +91,11 @@ document.querySelectorAll('nav a').forEach(anchor => {
 
 });
 
-
-// =============================
-// Active Navigation
-// =============================
+// ===============================
+// Active Navbar
+// ===============================
 
 const sections = document.querySelectorAll("section");
-
 const navLinks = document.querySelectorAll("nav a");
 
 window.addEventListener("scroll", () => {
@@ -71,9 +106,7 @@ window.addEventListener("scroll", () => {
 
         const sectionTop = section.offsetTop - 150;
 
-        const sectionHeight = section.clientHeight;
-
-        if(pageYOffset >= sectionTop){
+        if (window.scrollY >= sectionTop) {
 
             current = section.getAttribute("id");
 
@@ -81,11 +114,11 @@ window.addEventListener("scroll", () => {
 
     });
 
-    navLinks.forEach(link=>{
+    navLinks.forEach(link => {
 
         link.classList.remove("active");
 
-        if(link.getAttribute("href")=="#"+current){
+        if (link.getAttribute("href") === "#" + current) {
 
             link.classList.add("active");
 
@@ -95,84 +128,35 @@ window.addEventListener("scroll", () => {
 
 });
 
-
-// =============================
+// ===============================
 // Scroll Animation
-// =============================
+// ===============================
 
-const observer = new IntersectionObserver(entries=>{
+const observer = new IntersectionObserver((entries) => {
 
-    entries.forEach(entry=>{
+    entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
 
-            entry.target.classList.add("show");
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
 
         }
 
     });
 
-},{threshold:0.2});
+}, {
 
-document.querySelectorAll(".card,.booking,.stat-box,.contact")
-.forEach(el=>observer.observe(el));
-
-
-// =============================
-// Button Ripple Effect
-// =============================
-
-const buttons = document.querySelectorAll("button");
-
-buttons.forEach(button=>{
-
-button.addEventListener("click",function(e){
-
-const circle=document.createElement("span");
-
-const diameter=Math.max(button.clientWidth,button.clientHeight);
-
-circle.style.width=circle.style.height=diameter+"px";
-
-circle.style.left=e.offsetX-diameter/2+"px";
-
-circle.style.top=e.offsetY-diameter/2+"px";
-
-circle.classList.add("ripple");
-
-const ripple=button.querySelector(".ripple");
-
-if(ripple){
-
-ripple.remove();
-
-}
-
-button.appendChild(circle);
+    threshold: 0.2
 
 });
 
-});
+document.querySelectorAll(".card,.booking,.history,.stats,.contact").forEach(item => {
 
+    item.style.opacity = "0";
+    item.style.transform = "translateY(40px)";
+    item.style.transition = "0.8s";
 
-// =============================
-// Header Shadow
-// =============================
-
-const header=document.querySelector("header");
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY>50){
-
-header.style.boxShadow="0 5px 20px rgba(0,0,0,0.15)";
-
-}
-
-else{
-
-header.style.boxShadow="0 3px 10px rgba(0,0,0,0.08)";
-
-}
+    observer.observe(item);
 
 });
