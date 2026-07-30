@@ -1,162 +1,135 @@
 // ===============================
-// Select Elements
+// LABORATORY BOOKING PORTAL
 // ===============================
 
 const form = document.getElementById("bookingForm");
-const bookingSlip = document.getElementById("bookingSlip");
-const bookingTable = document.getElementById("bookingTable");
-
-// ===============================
-// Booking Form
-// ===============================
+const popup = document.getElementById("popup");
+const historyBody = document.getElementById("historyBody");
 
 form.addEventListener("submit", function (e) {
 
     e.preventDefault();
 
-    const bookingID = "LAB" + Math.floor(Math.random() * 9000 + 1000);
+    // Get Form Values
+    const name = form.querySelector('input[placeholder="Student Name"]').value;
+    const regNo = form.querySelector('input[placeholder="Register Number"]').value;
+    const department = form.querySelector('input[placeholder="Department"]').value;
+    const lab = form.querySelector("select").value;
+    const date = form.querySelector('input[type="date"]').value;
+    const time = form.querySelector('input[type="time"]').value;
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const lab = document.getElementById("lab").value;
-    const date = document.getElementById("date").value;
-    const time = document.getElementById("time").value;
+    // Validate Lab Selection
+    if (lab === "Select Laboratory") {
+        alert("Please select a laboratory.");
+        return;
+    }
 
-    // Booking Slip
-
-    document.getElementById("bookingId").innerText = bookingID;
-    document.getElementById("studentName").innerText = name;
-    document.getElementById("studentEmail").innerText = email;
-    document.getElementById("studentLab").innerText = lab;
-    document.getElementById("studentDate").innerText = date;
-    document.getElementById("studentTime").innerText = time;
-
-    bookingSlip.style.display = "block";
-
-    bookingSlip.scrollIntoView({
-
-        behavior: "smooth"
-
-    });
-
-    // Add Booking History
-
+    // Create New Table Row
     const row = document.createElement("tr");
 
     row.innerHTML = `
-        <td>${bookingID}</td>
         <td>${name}</td>
         <td>${lab}</td>
         <td>${date}</td>
         <td>${time}</td>
     `;
 
-    bookingTable.appendChild(row);
+    historyBody.appendChild(row);
 
-    alert("✅ Laboratory Booked Successfully!");
+    // Success Popup
+    popup.classList.add("show");
 
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 3000);
+
+    // Success Alert
+    alert(
+        "Booking Successful!\n\n" +
+        "Student : " + name +
+        "\nRegister No : " + regNo +
+        "\nDepartment : " + department +
+        "\nLaboratory : " + lab
+    );
+
+    // Reset Form
     form.reset();
 
 });
 
 // ===============================
-// Download Booking Slip
+// BOOK BUTTONS
 // ===============================
 
-document.getElementById("downloadSlip").addEventListener("click", function () {
+const bookButtons = document.querySelectorAll(".card button");
 
-    window.print();
+bookButtons.forEach(button => {
 
-});
+    button.addEventListener("click", () => {
 
-// ===============================
-// Smooth Navigation
-// ===============================
-
-document.querySelectorAll("nav a").forEach(link => {
-
-    link.addEventListener("click", function (e) {
-
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        target.scrollIntoView({
-
-            behavior: "smooth"
-
-        });
+        document
+            .getElementById("booking")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
 
     });
 
 });
 
 // ===============================
-// Active Navbar
+// CURRENT YEAR IN FOOTER
 // ===============================
 
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
+const footer = document.querySelector("footer p");
 
-window.addEventListener("scroll", () => {
+footer.innerHTML =
+    "© " +
+    new Date().getFullYear() +
+    " Laboratory Booking Portal | Designed by Abishek";
 
-    let current = "";
+// ===============================
+// HERO BUTTON ANIMATION
+// ===============================
 
-    sections.forEach(section => {
+const heroButton = document.querySelector(".hero button");
 
-        const sectionTop = section.offsetTop - 150;
+heroButton.addEventListener("mouseenter", () => {
+    heroButton.style.boxShadow = "0px 0px 20px orange";
+});
 
-        if (window.scrollY >= sectionTop) {
+heroButton.addEventListener("mouseleave", () => {
+    heroButton.style.boxShadow = "none";
+});
 
-            current = section.getAttribute("id");
+// ===============================
+// CARD HOVER EFFECT
+// ===============================
 
-        }
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+    card.addEventListener("mouseenter", () => {
+
+        card.style.transform = "translateY(-12px) scale(1.03)";
 
     });
 
-    navLinks.forEach(link => {
+    card.addEventListener("mouseleave", () => {
 
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === "#" + current) {
-
-            link.classList.add("active");
-
-        }
+        card.style.transform = "translateY(0px) scale(1)";
 
     });
 
 });
 
 // ===============================
-// Scroll Animation
+// WELCOME MESSAGE
 // ===============================
 
-const observer = new IntersectionObserver((entries) => {
+window.onload = function () {
 
-    entries.forEach(entry => {
+    console.log("Laboratory Booking Portal Loaded Successfully.");
 
-        if (entry.isIntersecting) {
-
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-
-        }
-
-    });
-
-}, {
-
-    threshold: 0.2
-
-});
-
-document.querySelectorAll(".card,.booking,.history,.stats,.contact").forEach(item => {
-
-    item.style.opacity = "0";
-    item.style.transform = "translateY(40px)";
-    item.style.transition = "0.8s";
-
-    observer.observe(item);
-
-});
+};

@@ -1,350 +1,413 @@
+/* ===========================
+   GOOGLE FONT
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===========================
+   RESET
+=========================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'Poppins',sans-serif;
     scroll-behavior:smooth;
 }
 
 body{
-    background:#f8f9fc;
+    background:linear-gradient(135deg,#e3f2fd,#ffffff);
     color:#333;
 }
 
-/* Header */
+/* ===========================
+   NAVBAR (FLEXBOX)
+=========================== */
 
 header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.navbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:#1f3c88;
+    padding:18px 8%;
+    background:#0d47a1;
     color:white;
-    padding:15px 8%;
-    position:sticky;
-    top:0;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
+    font-size:28px;
+    font-weight:700;
 }
 
 .logo i{
-    font-size:28px;
-}
-
-nav{
-    display:flex;
-    gap:25px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    transition:.3s;
-}
-
-nav a:hover,
-nav a.active{
     color:#ffd54f;
 }
 
-/* Hero */
-
-.hero{
+.nav-links{
     display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:70px 8%;
-    gap:50px;
-    animation:fadeIn 1s;
+    list-style:none;
+    gap:30px;
 }
 
-.hero-text{
-    flex:1;
-}
-
-.hero-text h1{
-    font-size:45px;
-    color:#1f3c88;
-    margin-bottom:20px;
-}
-
-.hero-text p{
-    margin-bottom:25px;
-    line-height:1.7;
-}
-
-.hero-btn{
-    display:inline-block;
-    background:#1f3c88;
+.nav-links a{
     color:white;
     text-decoration:none;
-    padding:12px 30px;
-    border-radius:5px;
+    font-weight:500;
     transition:.3s;
 }
 
-.hero-btn:hover{
-    background:#2563eb;
+.nav-links a:hover{
+    color:#ffd54f;
 }
 
-.hero-image{
-    flex:1;
+/* ===========================
+   HERO SECTION
+=========================== */
+
+.hero{
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     text-align:center;
+    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+    url("https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1400&q=80");
+    background-size:cover;
+    background-position:center;
+    color:white;
 }
 
-.hero-image img{
-    width:100%;
-    max-width:500px;
-    border-radius:10px;
-    transition:.4s;
+.hero-content{
+    animation:fadeUp 1.2s ease;
 }
 
-.hero-image img:hover{
-    transform:scale(1.03);
-}
-
-/* Booking Form */
-
-.booking{
-    width:90%;
-    max-width:700px;
-    margin:50px auto;
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-.booking h2{
-    text-align:center;
-    color:#1f3c88;
+.hero h1{
+    font-size:55px;
     margin-bottom:20px;
 }
 
-.input-box{
+.hero p{
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+.hero button{
+    padding:15px 35px;
+    border:none;
+    border-radius:40px;
+    background:#ff9800;
+    color:white;
+    cursor:pointer;
+    font-size:18px;
+    transition:.4s;
+}
+
+.hero button:hover{
+    background:#fb8c00;
+    transform:scale(1.1);
+}
+
+/* ===========================
+   LAB CARDS (FLEXBOX)
+=========================== */
+
+.labs{
+    padding:70px 8%;
+}
+
+.labs h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:38px;
+}
+
+.card-container{
     display:flex;
-    flex-direction:column;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+}
+
+.card{
+    width:320px;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.card i{
+    font-size:55px;
+    color:#1565c0;
+    margin-bottom:20px;
+}
+
+.card h3{
     margin-bottom:15px;
 }
 
-label{
-    margin-bottom:5px;
-    font-weight:bold;
+.card p{
+    margin-bottom:20px;
 }
 
-input,
-select{
-    padding:10px;
-    border:1px solid #ccc;
-    border-radius:5px;
-}
-
-input:focus,
-select:focus{
-    border-color:#1f3c88;
-    outline:none;
-}
-
-button{
-    width:100%;
-    padding:12px;
+.card button{
+    padding:12px 25px;
     border:none;
-    border-radius:5px;
-    background:#1f3c88;
+    border-radius:30px;
+    background:#1565c0;
     color:white;
     cursor:pointer;
     transition:.3s;
 }
 
-button:hover{
-    background:#2563eb;
-    transform:translateY(-2px);
+.card button:hover{
+    background:#0d47a1;
+    transform:scale(1.08);
 }
 
-/* Booking Slip */
+/* ===========================
+   BOOKING FORM (GRID)
+=========================== */
 
-.booking-slip{
-    display:none;
-    width:90%;
-    max-width:700px;
-    margin:40px auto;
+.booking{
+    padding:70px 8%;
 }
 
-.slip{
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-.slip p{
-    margin:12px 0;
-}
-
-.status{
-    color:green;
-    font-weight:bold;
-}
-
-/* Labs */
-
-.labs{
-    width:90%;
-    margin:60px auto;
-}
-
-.labs h2{
+.booking h2{
     text-align:center;
     margin-bottom:30px;
-    color:#1f3c88;
+    font-size:38px;
 }
 
-.lab-grid{
+form{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(2,1fr);
     gap:20px;
 }
 
-.card{
-    background:white;
-    padding:25px;
-    text-align:center;
+input,
+select,
+textarea{
+    width:100%;
+    padding:15px;
+    border:1px solid #ccc;
     border-radius:10px;
-    box-shadow:0 5px 10px rgba(0,0,0,.1);
+    font-size:16px;
+}
+
+textarea{
+    margin-top:20px;
+    height:130px;
+    resize:none;
+}
+
+form button{
+    margin-top:20px;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#2e7d32;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
     transition:.3s;
 }
 
-.card:hover{
-    transform:translateY(-8px);
+form button:hover{
+    background:#1b5e20;
 }
 
-.card i{
-    font-size:40px;
-    color:#1f3c88;
-    margin-bottom:15px;
-}
-
-/* History */
+/* ===========================
+   TABLE
+=========================== */
 
 .history{
-    width:90%;
-    margin:60px auto;
-    overflow-x:auto;
+    padding:70px 8%;
 }
 
 .history h2{
     text-align:center;
-    margin-bottom:20px;
-    color:#1f3c88;
+    margin-bottom:30px;
 }
 
 table{
     width:100%;
     border-collapse:collapse;
+    background:white;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
 th{
-    background:#1f3c88;
+    background:#1565c0;
     color:white;
-    padding:12px;
 }
 
+th,
 td{
+    padding:15px;
+    text-align:center;
     border:1px solid #ddd;
-    padding:10px;
-    text-align:center;
 }
 
-/* Stats */
-
-.stats{
-    width:90%;
-    margin:60px auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
+tr:hover{
+    background:#f1f1f1;
 }
 
-.stat-box{
-    background:#1f3c88;
-    color:white;
-    text-align:center;
-    padding:30px;
-    border-radius:10px;
-    transition:.3s;
-}
-
-.stat-box:hover{
-    transform:scale(1.05);
-}
-
-/* Contact */
+/* ===========================
+   CONTACT
+=========================== */
 
 .contact{
-    width:90%;
-    margin:60px auto;
+    padding:70px 8%;
     text-align:center;
 }
 
 .contact h2{
-    color:#1f3c88;
     margin-bottom:20px;
 }
 
 .contact p{
-    margin:10px 0;
+    margin:12px;
+    font-size:18px;
 }
 
-/* Footer */
+.contact i{
+    color:#1565c0;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
 
 footer{
-    background:#1f3c88;
+    background:#0d47a1;
     color:white;
     text-align:center;
     padding:20px;
-    margin-top:40px;
 }
 
-/* Animation */
+/* ===========================
+   POPUP
+=========================== */
 
-@keyframes fadeIn{
+.popup{
+    position:fixed;
+    top:20px;
+    right:-300px;
+    background:#2e7d32;
+    color:white;
+    padding:18px 30px;
+    border-radius:10px;
+    transition:.5s;
+    font-weight:bold;
+}
+
+.popup.show{
+    right:20px;
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes fadeUp{
 
 from{
-opacity:0;
-transform:translateY(-20px);
+    opacity:0;
+    transform:translateY(60px);
 }
 
 to{
-opacity:1;
-transform:translateY(0);
+    opacity:1;
+    transform:translateY(0);
 }
 
 }
 
-/* Responsive */
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+
+@media(max-width:992px){
+
+.hero h1{
+    font-size:42px;
+}
+
+.grid{
+    grid-template-columns:1fr;
+}
+
+}
 
 @media(max-width:768px){
 
-header{
+.navbar{
     flex-direction:column;
+    gap:20px;
+}
+
+.nav-links{
+    flex-direction:column;
+    text-align:center;
     gap:15px;
 }
 
-nav{
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.hero{
-    flex-direction:column;
-    text-align:center;
-}
-
-.hero-text h1{
+.hero h1{
     font-size:34px;
+}
+
+.hero p{
+    font-size:16px;
+}
+
+.card{
+    width:100%;
+}
+
+}
+
+@media(max-width:500px){
+
+.hero h1{
+    font-size:28px;
+}
+
+.hero button{
+    width:100%;
+}
+
+table{
+    font-size:13px;
+}
+
+th,
+td{
+    padding:10px;
 }
 
 }
